@@ -32,8 +32,8 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO appointment (barber_id, service_id,date,time,comment)
-VALUES ('$barberadmin','$servicetype','$date','$time','$comment')";
+$sql = "INSERT INTO appointments (customer_id,barber_id,service_id,date,time,comment,status)
+VALUES ('1','1','$servicetype','$date','$time','$comment','pending')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
@@ -53,15 +53,14 @@ echo  '<p class="text-base-300">ช่างตัดผม</p>';
 echo '<select class="select select-bordered w-full max-w-xs" name="barberadmin" required>
 <option disabled selected>เลือกช่างตัดผม</option>
 <option value="1">ช่างตุ๊ก</option>
-<option  value="2">ช่างบูม</option>
 </select>';
 echo '<br>';
 echo '<br>';
 echo '<select class="select select-bordered w-full max-w-xs" name="servicetype" required>
 <option disabled selected>เลือกบริการ</option>
-<option value="0">ตัดผม</option>
-<option  value="1">โกนหนวด</option>
-<option  value="2">สระ/ไดร์</option>
+<option value="6">ตัดผม</option>
+<option  value="7">โกนหนวด</option>
+<option  value="8">สระ/ไดร์</option>
 </select>';
 
 echo '<br>';
